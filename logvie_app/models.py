@@ -18,7 +18,7 @@ class Favorite(models.Model):
     # movie_id1 = models.IntegerField(null=False)
     class Meta:
         db_table = "favorites"
-
+        ordering = ['-id']
 class Diary(models.Model):
     
     id = models.AutoField(primary_key=True)
@@ -32,3 +32,4 @@ class Diary(models.Model):
     
     class Meta:
         db_table = "diaries"
+        ordering = ['-id']

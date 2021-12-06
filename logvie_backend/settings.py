@@ -75,22 +75,22 @@ WSGI_APPLICATION = 'logvie_backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
 DATABASES = {
     'default': {
-        'ENGINE':'django.db.backends.mysql',
-        'NAME':'logvie',
-        'USER':'mariadb_admin@mariadb-logvie',
-        'PASSWORD':'logvieApp1207$$',
-        'HOST':'mariadb-logvie.mariadb.database.azure.com',
-        'PORT':'3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+#DATABASES = {
+#    'default': {
+#        'ENGINE':'django.db.backends.mysql',
+#        'NAME':'logvie',
+#        'USER':'mariadb_admin@mariadb-logvie',
+#        'PASSWORD':'logvieApp1207$$',
+#        'HOST':'mariadb-logvie.mariadb.database.azure.com',
+#        'PORT':'3306',
+#    }
+#}
 # Maria DB -> Database engines 에서 설정해줘야 함..
 # Host: 'mariadb-logvie.mariadb.database.azure.com' <- 여기에 서버 이름이 들어감.
 #

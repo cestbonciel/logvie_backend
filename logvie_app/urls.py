@@ -9,7 +9,7 @@ urlpatterns = [
     path('favorites/', views.FavoriteView.as_view()),
     path('favorites/<int:uid>',views.FavoriteView.as_view()),
     
-    path('diarys_date', views.DiaryViewDate.as_view()),
+    path('diaries_date', views.DiaryViewDate.as_view()),
 
     path('diaries/',views.DiaryView.as_view()),
     path('diaries/<int:uid>',views.DiaryView.as_view()) 

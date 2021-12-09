@@ -12,7 +12,12 @@ from .models import Favorite, Diary
 class FavoriteView(APIView):
     def get(self, request, **kwargs):
         if kwargs.get('uid') is None:
-            favorites = Favorite.objects.all()
+            if request.GET.get('user_id') is None: 
+                diaries = Favorite.objects.all()
+            else :
+                userid = request.GET.get('user_id')
+                favorites = Favorite.objects.filter(user_id=userid)
+            # favorites = Favorite.objects.all()
             serializer = FavoriteSerializer(favorites, many=True)
             return Response({'count':favorites.count(),'data':serializer.data},status=status.HTTP_200_OK)
         else : 

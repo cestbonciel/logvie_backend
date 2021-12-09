@@ -13,7 +13,7 @@ class FavoriteView(APIView):
     def get(self, request, **kwargs):
         if kwargs.get('uid') is None:
             if request.GET.get('user_id') is None: 
-                diaries = Favorite.objects.all()
+                favorites = Favorite.objects.all()
             else :
                 userid = request.GET.get('user_id')
                 favorites = Favorite.objects.filter(user_id=userid)

@@ -29,9 +29,24 @@ class FavoriteView(APIView):
     def post(self, request):
         serializer = FavoriteSerializer(data = request.data)
         if serializer.is_valid():
-            serializer.save()
-            return Response({'result':'success','data':serializer.data},status=status.HTTP_200_OK)
+            userid = request.POST.get('user_id')
+            movieid = request.POST.get('movie_id')
+            favorites = Favorite.objects.filter(user_id=userid,movie_id=movieid)
+            
+            print("**",favorites.count())
+            print(movieid,userid)
+            
+            if (favorites.count() < 1 ) :
+
+                # 저장
+                # return Response
+                serializer.save()
+                
+
+            return Response({'result':'success','data':serializer.data},status=status.HTTP_200_OK)        
+  
         else : 
+
             return Response({'result':'fail','data':serializer.errors},status=status.HTTP_400_BAD_REQUEST)
     
     def put(self,request, **kwargs):
